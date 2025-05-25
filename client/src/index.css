@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes memory-notification {
+  0% { opacity: 0; transform: translateY(5px); }
+  30% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+.memory-notification {
+  animation: memory-notification 0.6s ease-out forwards;
+}
+
+/* Markdown content styling */
+.markdown-content {
+  width: 100%;
+}
+
+.markdown-content a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.markdown-content a:hover {
+  text-decoration: underline;
+}
+
+.markdown-content code {
+  font-family: monospace;
+}
+
+.markdown-content pre {
+  overflow-x: auto;
+  background-color: hsl(var(--muted));
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  margin: 0.5rem 0;
+}
+
+.markdown-content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.markdown-content th,
+.markdown-content td {
+  border: 1px solid hsl(var(--border));
+  padding: 0.5rem;
+}
+
+.markdown-content th {
+  background-color: hsl(var(--muted));
+}
+
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+@layer base {
+  :root {
+    --background: 25 25% 96%;
+    --foreground: 25 40% 15%;
+
+    --card: 25 30% 98%;
+    --card-foreground: 25 40% 15%;
+
+    --popover: 25 30% 98%;
+    --popover-foreground: 25 40% 15%;
+
+    --primary: 25 45% 35%;
+    --primary-foreground: 25 10% 98%;
+
+    --secondary: 25 35% 90%;
+    --secondary-foreground: 25 40% 15%;
+    
+    --muted: 25 15% 90%;
+    --muted-foreground: 25 25% 35%;
+    
+    --accent: 25 15% 92%;
+    --accent-foreground: 25 40% 22%;
+    
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 20% 85%;
+    --input: 25 20% 85%;
+    --ring: 25 45% 35%;
+
+    --sidebar-background: 25 25% 92%;
+    --sidebar-foreground: 25 40% 15%;
+    --sidebar-primary: 25 45% 35%;
+    --sidebar-primary-foreground: 25 10% 98%;
+    --sidebar-accent: 25 15% 80%;
+    --sidebar-accent-foreground: 25 40% 15%;
+    --sidebar-border: 25 20% 75%;
+    --sidebar-ring: 25 45% 35%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans bg-background text-foreground antialiased;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--card));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted));
+}
+
+/* Typography */
+.tracking-tighter {
+  letter-spacing: -0.025em;
+}
