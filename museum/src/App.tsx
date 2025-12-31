@@ -10,28 +10,25 @@ import DashboardLayout from "@/pages/dashboard/layout";
 import SharedProfilePage from "@/pages/shared-profile-page";
 import PrivacyPage from "@/pages/privacy-page";
 import { ProtectedRoute } from "@/lib/protected-route";
-import { ErrorBoundary } from "@/lib/error-boundary";
 import { AuthProvider } from "@/hooks/use-auth";
-import { MuseumBanner } from "@/components/MuseumBanner";
+import { MuseumBanner, MUSEUM_BANNER_HEIGHT } from "@/components/MuseumBanner";
 
 function Router() {
   return (
-    <ErrorBoundary fallback={<div className="p-8">Sorry, there was an error loading this page.</div>}>
-      <Switch>
-        <Route path="/" component={HomeRedirect} />
-        <Route path="/home" component={HomePage} />
-        <Route path="/auth" component={AuthPage} />
-        <Route path="/onboarding" component={OnboardingPage} />
-        <Route path="/privacy" component={PrivacyPage} />
-        <ProtectedRoute path="/dashboard" component={DashboardLayout} />
-        <ProtectedRoute path="/dashboard/chat" component={DashboardLayout} />
-        <ProtectedRoute path="/dashboard/colleges" component={DashboardLayout} />
-        <ProtectedRoute path="/dashboard/profile" component={DashboardLayout} />
-        <ProtectedRoute path="/dashboard/advisors" component={DashboardLayout} />
-        <Route path="/shared/:shareToken" component={SharedProfilePage} />
-        <Route component={NotFound} />
-      </Switch>
-    </ErrorBoundary>
+    <Switch>
+      <Route path="/" component={HomeRedirect} />
+      <Route path="/home" component={HomePage} />
+      <Route path="/auth" component={AuthPage} />
+      <Route path="/onboarding" component={OnboardingPage} />
+      <Route path="/privacy" component={PrivacyPage} />
+      <ProtectedRoute path="/dashboard" component={DashboardLayout} />
+      <ProtectedRoute path="/dashboard/chat" component={DashboardLayout} />
+      <ProtectedRoute path="/dashboard/colleges" component={DashboardLayout} />
+      <ProtectedRoute path="/dashboard/profile" component={DashboardLayout} />
+      <ProtectedRoute path="/dashboard/advisors" component={DashboardLayout} />
+      <Route path="/shared/:shareToken" component={SharedProfilePage} />
+      <Route component={NotFound} />
+    </Switch>
   );
 }
 
@@ -40,7 +37,9 @@ function App() {
     <WouterRouter hook={useHashLocation}>
       <AuthProvider>
         <MuseumBanner />
-        <Router />
+        <div style={{ paddingTop: MUSEUM_BANNER_HEIGHT }}>
+          <Router />
+        </div>
         <Toaster />
       </AuthProvider>
     </WouterRouter>
