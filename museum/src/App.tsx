@@ -11,7 +11,7 @@ import SharedProfilePage from "@/pages/shared-profile-page";
 import PrivacyPage from "@/pages/privacy-page";
 import { ProtectedRoute } from "@/lib/protected-route";
 import { AuthProvider } from "@/hooks/use-auth";
-import { MuseumBanner, MUSEUM_BANNER_HEIGHT } from "@/components/MuseumBanner";
+import { MuseumBanner } from "@/components/MuseumBanner";
 
 function Router() {
   return (
@@ -36,9 +36,14 @@ function App() {
   return (
     <WouterRouter hook={useHashLocation}>
       <AuthProvider>
-        <MuseumBanner />
-        <div style={{ paddingTop: MUSEUM_BANNER_HEIGHT }}>
-          <Router />
+        <div className="h-screen flex flex-col overflow-hidden">
+          {/* Fixed museum banner at top */}
+          <MuseumBanner />
+
+          {/* Main content area - scrollable, takes remaining height */}
+          <div className="flex-1 overflow-auto">
+            <Router />
+          </div>
         </div>
         <Toaster />
       </AuthProvider>
