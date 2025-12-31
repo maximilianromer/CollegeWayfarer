@@ -32,7 +32,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-4 flex items-center justify-between border-b border-border/40 bg-background/95 backdrop-blur-sm">
+      <nav className="sticky top-0 left-0 right-0 z-50 px-4 py-4 flex items-center justify-between border-b border-border/40 bg-background/95 backdrop-blur-sm">
         <Logo />
         <div className="flex items-center space-x-4">
           <Button
@@ -53,7 +53,7 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <div className="pt-32 pb-16 px-4 max-w-6xl mx-auto">
+      <div className="pt-8 pb-16 px-4 max-w-6xl mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tighter leading-tight">
             AI-Powered College<br />

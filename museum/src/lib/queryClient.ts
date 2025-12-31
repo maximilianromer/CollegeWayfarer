@@ -98,6 +98,15 @@ export async function apiRequest(
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   }
 
+  // Handle GET /api/user
+  if (url === "/api/user" && method === "GET") {
+    const user = mockStore.getUser();
+    if (user) {
+      return new Response(JSON.stringify(user), { status: 200 });
+    }
+    return new Response(JSON.stringify(null), { status: 401 });
+  }
+
   // Default response
   return new Response(JSON.stringify({}), { status: 200 });
 }

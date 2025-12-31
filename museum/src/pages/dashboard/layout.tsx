@@ -41,12 +41,14 @@ export default function DashboardLayout() {
         
         // If not in cache, fetch from API
         const response = await apiRequest("GET", "/api/user").catch(() => null);
-        
-        if (response) {
+
+        if (response && response.ok) {
           const userData = await response.json() as SelectUser;
-          setUser(userData);
-          // Update cache
-          queryClient.setQueryData(["/api/user"], userData);
+          if (userData) {
+            setUser(userData);
+            // Update cache
+            queryClient.setQueryData(["/api/user"], userData);
+          }
         }
       } catch (error) {
         console.error("Error fetching user:", error);
