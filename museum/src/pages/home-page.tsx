@@ -317,12 +317,12 @@ export default function HomePage() {
               <p className="text-sm text-muted-foreground mt-1">© 2025 CollegeWayfarer AI</p>
             </div>
             <div className="mt-4 flex justify-center">
-              <a 
-                href="/privacy" 
+              <button
+                onClick={() => setLocation("/privacy")}
                 className="text-sm text-muted-foreground hover:text-foreground hover:underline"
               >
                 Privacy Policy
-              </a>
+              </button>
             </div>
           </div>
         </div>

@@ -325,16 +325,24 @@ export function getShareUrl(shareToken: string): string {
 
 // Get shared profile data (for advisor view)
 export function getSharedProfileData(shareToken: string): {
+  advisor: { name: string; type: string; id: number };
   user: Pick<User, "username" | "profileDescription">;
   colleges: College[];
   recommendations: CollegeRecommendation[];
+  sharedChatSessions: ChatSession[];
 } | null {
   const advisor = advisors.find(a => a.shareToken === shareToken && a.isActive);
-  if (!advisor || !currentUser) {
-    // Return demo data for the showcase
+
+  // Always return demo data for the showcase (museum mode)
+  if (!advisor || !currentUser || shareToken === "demo-showcase") {
     return {
+      advisor: {
+        name: DEMO_ADVISOR.name,
+        type: DEMO_ADVISOR.type,
+        id: 1
+      },
       user: {
-        username: "Demo Student",
+        username: "Alex",
         profileDescription: DEMO_PROFILE_DESCRIPTION
       },
       colleges: DEMO_COLLEGES.map((c, i) => ({
@@ -350,16 +358,29 @@ export function getSharedProfileData(shareToken: string): {
         userId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
+      })),
+      sharedChatSessions: DEMO_CHAT_SESSIONS.map((s, i) => ({
+        ...s,
+        id: i + 1,
+        userId: 1,
+        createdAt: new Date(Date.now() - (i + 1) * 86400000),
+        updatedAt: new Date(Date.now() - (i + 1) * 86400000)
       }))
     };
   }
 
   return {
+    advisor: {
+      name: advisor.name,
+      type: advisor.type,
+      id: advisor.id
+    },
     user: {
       username: currentUser.username,
       profileDescription: currentUser.profileDescription
     },
     colleges,
-    recommendations
+    recommendations,
+    sharedChatSessions: chatSessions
   };
 }

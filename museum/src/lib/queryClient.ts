@@ -107,6 +107,51 @@ export async function apiRequest(
     return new Response(JSON.stringify(null), { status: 401 });
   }
 
+  // Handle GET /api/shared/:shareToken/chat/:sessionId/messages
+  if (url.match(/\/api\/shared\/[^/]+\/chat\/\d+\/messages/) && method === "GET") {
+    // Return demo chat messages
+    const demoMessages = [
+      {
+        id: 1,
+        sessionId: 1,
+        content: "What colleges would you recommend for me based on my interests?",
+        sender: "user",
+        attachments: [],
+        createdAt: new Date(Date.now() - 86400000)
+      },
+      {
+        id: 2,
+        sessionId: 1,
+        content: `Based on your profile, here are some colleges that might be a great fit for you:
+
+**Strong Matches:**
+1. **Stanford University** - Excellent CS and environmental programs, Bay Area location
+2. **UC Berkeley** - Top-ranked CS, strong sustainability research, diverse campus
+3. **Harvey Mudd College** - Small classes, hands-on CS education, collaborative culture
+
+**Good Fits:**
+1. **University of Washington** - Strong CS, beautiful Pacific Northwest setting
+2. **Pomona College** - Liberal arts approach, excellent undergraduate research
+
+Would you like me to elaborate on any of these recommendations?`,
+        sender: "ai",
+        attachments: [],
+        createdAt: new Date(Date.now() - 86400000 + 1000)
+      }
+    ];
+    return new Response(JSON.stringify(demoMessages), { status: 200 });
+  }
+
+  // Handle GET /api/shared/:shareToken
+  if (url.startsWith("/api/shared/") && method === "GET") {
+    const shareToken = url.split("/")[3];
+    const data = mockStore.getSharedProfileData(shareToken);
+    if (data) {
+      return new Response(JSON.stringify(data), { status: 200 });
+    }
+    return new Response(JSON.stringify({ error: "Not found" }), { status: 404 });
+  }
+
   // Default response
   return new Response(JSON.stringify({}), { status: 200 });
 }

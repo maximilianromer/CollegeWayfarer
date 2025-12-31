@@ -178,7 +178,7 @@ export const PRERECORDED_RECOMMENDATIONS: Omit<CollegeRecommendation, "id" | "us
 export const DEMO_ADVISOR: Omit<Advisor, "id" | "userId" | "createdAt" | "updatedAt"> = {
   name: "Ms. Johnson",
   type: AdvisorType.SCHOOL_COUNSELOR,
-  shareToken: "demo-advisor-token-12345",
+  shareToken: "demo-showcase",
   isActive: true
 };
 

@@ -184,11 +184,10 @@ export default function DashboardLayout() {
             </ul>
             
             <div className="mt-auto pt-6">
-              <a 
-                href="/privacy" 
-                target="_blank" 
-                className="text-xs text-muted-foreground hover:text-foreground hover:underline block px-3"
-              >Privacy</a>
+              <button
+                onClick={() => setLocation("/privacy")}
+                className="text-xs text-muted-foreground hover:text-foreground hover:underline block px-3 text-left"
+              >Privacy</button>
             </div>
           </nav>
 
@@ -297,13 +296,12 @@ export default function DashboardLayout() {
                   Log out
                 </Button>
                 <div className="mt-6 px-3">
-                  <a 
-                    href="/privacy" 
-                    target="_blank" 
-                    className="text-xs text-muted-foreground hover:text-foreground hover:underline"
+                  <button
+                    onClick={() => { setLocation("/privacy"); setMobileMenuOpen(false); }}
+                    className="text-xs text-muted-foreground hover:text-foreground hover:underline text-left"
                   >
                     Privacy Policy
-                  </a>
+                  </button>
                 </div>
               </div>
             </nav>

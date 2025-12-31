@@ -57,7 +57,8 @@ export default function SharedProfilePage() {
     return "bg-blue-200 text-blue-800"; // Less selective
   };
   
-  const shareToken = window.location.pathname.split('/shared/')[1];
+  // Parse token from hash URL (e.g., /#/shared/demo-showcase)
+  const shareToken = window.location.hash.split('/shared/')[1];
   
   // Get the current viewing session
   const currentViewingSession = profile?.sharedChatSessions.find(
@@ -192,7 +193,7 @@ export default function SharedProfilePage() {
           <div className="flex items-center">
             <Logo className="h-8 w-auto" />
           </div>
-          <Button variant="ghost" onClick={() => window.location.href = "/"}>
+          <Button variant="ghost" onClick={() => setLocation("/home")}>
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to home
           </Button>
@@ -211,9 +212,9 @@ export default function SharedProfilePage() {
             </CardHeader>
             <CardContent>
               <p className="text-destructive">{error}</p>
-              <Button 
-                className="mt-4" 
-                onClick={() => window.location.href = "/"}
+              <Button
+                className="mt-4"
+                onClick={() => setLocation("/home")}
               >
                 Return to home
               </Button>
