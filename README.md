@@ -1,10 +1,16 @@
-# CollegeWayfarer 🎓✨
+# CollegeWayfarer 🎓
+
+
 
 CollegeWayfarer is a full-stack web application designed to streamline the college application process. It provides a comprehensive platform for students, parents, and counselors, leveraging modern web technologies to offer robust tools and resources for managing college exploration, applications, and guidance.
 
-**Live Application:** [https://collegewayfarer.replit.app](https://collegewayfarer.replit.app)
+~~**Live Application:** [https://collegewayfarer.replit.app](https://collegewayfarer.replit.app)~~
 
-## 🌟 Project Overview
+> **Update:** CollegeWayfarer has been sunsetted. A museum of it is deployed here:
+
+# [→ Open Demo Site](https://maximilianromer.github.io/CollegeWayfarer)
+
+## Project Overview
 
 The college application process presents numerous data management, workflow, and communication challenges. CollegeWayfarer addresses these by providing a centralized, feature-rich platform. It's architected to support various user roles (students, parents, counselors) with distinct functionalities, aiming to enhance organization, data accessibility, and efficiency throughout the application lifecycle.
 
@@ -15,7 +21,7 @@ Key technical goals and solutions include:
 * **Advisor Interaction Module:** Users can create sharable UUID links to give advisors access to their current application status.
 * **Security & Data Integrity:** Employs industry-standard security practices, input validation, and ORM-level safeguards to ensure user privacy and data accuracy.
 
-## 🚀 Tech Stack
+## Tech Stack
 
 CollegeWayfarer is architected using a modern, scalable, and type-safe technology stack:
 
@@ -41,7 +47,7 @@ CollegeWayfarer is architected using a modern, scalable, and type-safe technolog
 * **Database Schema Management:**
     * [Drizzle Kit](https://orm.drizzle.team/kit/overview): Utilized for database schema migrations and management, as indicated by `drizzle.config.ts`.
 
-## 📂 Project Structure
+## Project Structure
 
 The monorepo is organized to separate concerns and facilitate independent development where possible:
 
@@ -63,7 +69,7 @@ The monorepo is organized to separate concerns and facilitate independent develo
 * `shared/`: TypeScript types, interfaces, and Zod schemas (`schema.ts`) used by both client and server to ensure data consistency.
 * `public/`: Static assets served by the client application.
 
-## 🛠️ Getting Started
+## Getting Started
 
 To set up a local development environment:
 
@@ -112,7 +118,7 @@ To set up a local development environment:
 
 *Note: This app is built using the Replit IDE, and contains files instructing Replit how to run it.*
 
-## ✨ Core Technical Features
+## Core Technical Features
 
 * **User Authentication & Authorization:** Robust system for user registration, login, and session management, supporting distinct roles (student, parent, counselor) with appropriate permissions.
 * **Onboarding Workflow:** Multi-step, guided process for new user registration, collecting essential profile data and preferences, persisted to the PostgreSQL database via Drizzle ORM.
@@ -130,7 +136,7 @@ To set up a local development environment:
 * **Data Sharing & Permissions:** Granular control over sharing user profiles or specific data points with other users or roles.
 * **Responsive UI/UX:** Frontend architected with React and styled with Tailwind CSS for a fully responsive and accessible experience. Utilizes `shadcn/ui` for a consistent and modern component library, ensuring adaptability across devices.
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are pivotal to the open-source ecosystem. We encourage and appreciate any contributions to enhance CollegeWayfarer.
 
@@ -143,11 +149,11 @@ To contribute:
 
 Please ensure your code adheres to the existing style and all tests pass. For significant changes, please open an issue first to discuss what you would like to change.
 
-## 📜 License
+## License
 
 Distributed under the MIT License. See the `LICENSE` file for more information.
 
-## ❤️ Acknowledgements 
+## Acknowledgements 
 We would like to thank:
 
  1. **Replit** for their wonderful AI agent
