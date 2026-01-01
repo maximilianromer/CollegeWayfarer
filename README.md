@@ -7,8 +7,7 @@ CollegeWayfarer is a full-stack web application designed to streamline the colle
 ~~**Live Application:** [https://collegewayfarer.replit.app](https://collegewayfarer.replit.app)~~
 
 > **Update:** CollegeWayfarer has been sunsetted. A museum of it is deployed here:
-
-# [→ Open Demo Site](https://maximilianromer.github.io/CollegeWayfarer)
+> # [→ Open Demo Site](https://maximilianromer.github.io/CollegeWayfarer)
 
 ## Project Overview
 
